@@ -1,0 +1,163 @@
+.dashboard-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.refresh-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.refresh-button:hover {
+  background-color: #f9fafb;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap; /* Evita que el contenido se rompa en múltiples líneas */
+}
+
+.reservations-table th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: left;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Aseguramos que todas las celdas tengan la misma altura mínima */
+.reservations-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 0.875rem;
+  vertical-align: middle;
+  line-height: 1.25;
+  height: 100% !important; /* Altura fija para mantener consistencia */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-info img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+}
+
+.user-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-info .text-sm {
+  color: #6b7280;
+  font-size: 0.813rem;
+}
+
+/* Estilos para los estados */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.aprobado {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-badge.pendiente {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-select {
+  padding: 0.375rem 2rem 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #4b5563;
+  background-color: white;
+  height: 36px; /* Altura fija más pequeña */
+  min-width: 130px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.25rem;
+  appearance: none;
+}
+
+.delete-button {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #fee2e2;
+  background-color: white;
+  color: #dc2626;
+  font-size: 0.875rem;
+  cursor: pointer;
+  height: 36px; /* Altura fija más pequeña */
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #fee2e2;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .status-select,
+  .delete-button {
+    width: 100%;
+  }
+}

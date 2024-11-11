@@ -1,0 +1,64 @@
+mat-toolbar {
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 24px;
+  height: auto;
+  flex-direction: column;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.title-section {
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .subtitle {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.actions {
+  button {
+    background-color: #7c3aed;
+    color: white;
+    border-radius: 8px;
+    padding: 0 16px;
+    
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.tabs-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  mat-tab-group {
+    flex: 1;
+  }
+}
+
+.search-filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  
+  mat-form-field {
+    width: 240px;
+    margin-bottom: -1.25em;
+  }
+}

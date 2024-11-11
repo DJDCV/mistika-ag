@@ -15,6 +15,104 @@
 body {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
+  width: 100%;
+  height: 100%;
+  margin: auto;
 }
 
 html, body { height: 100%; }
+
+app-register, app-login {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #E3EBF7;
+  padding: 0 1rem;
+}
+
+.form-container {
+  display: flex;
+  width: clamp(300px, 100vw, 1024px);
+  height: auto;
+  justify-content: center;
+  background-color: #ffffff;
+  justify-content: space-between;
+  border-radius: 1.2rem;
+}
+
+.form-container__left {
+  display: flex;
+  width: 40%;
+}
+
+.form-container__left img {
+  aspect-ratio: 1;
+  width: 100%;
+  align-self: center;
+  height: 80%;
+  object-fit: contain;
+  margin-bottom: 3rem;
+  margin-left: 1.5rem;
+
+}
+
+.form-container form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  padding: 2rem 2rem;
+}
+
+.custom-input {
+  display: flex;
+  width: 100%;
+}
+
+@media (width < 768px) {
+  .form-container {
+    flex-flow: column;
+  }
+  
+  .form-container__left {
+    order: 0;
+    width: 100%;
+    height: 200px;
+  }
+
+  .form-container__left img {
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+  }
+
+  .form-container form {
+    width: 100%;
+    order: 1;
+    padding: 0 1.3rem 1rem;
+  }
+}
+
+/*  */
+.mdc-list-item__primary-text {
+  display: flex !important;
+  align-items: center !important;
+  width: max-content !important;
+}
+
+/* Header materialUI Styles */
+
+.header-content[_ngcontent-ng-c1706316444] {
+  margin: 0 !important;
+}
+
+/* Dashboard */
+app-dashboard {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+}
