@@ -5,11 +5,12 @@ import { MatInputModule } from '@angular/material/input';
 import { GoogleMap } from '@angular/google-maps';
 import { Loader } from '@googlemaps/js-api-loader';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-place-autocomplete',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, CommonModule, GoogleMap],
+  imports: [MatFormFieldModule, MatInputModule, CommonModule],
   templateUrl: './place-autocomplete.component.html',
   styleUrls: ['./place-autocomplete.component.css']
 })
@@ -18,7 +19,8 @@ export class PlaceAutocompleteComponent implements AfterViewInit, OnDestroy {
   @Input() placeholder = 'Nombre de tu local';
   @Output() placeSelected = new EventEmitter<any>();
 
-  private apiKey = 'AIzaSyDInLoON-9h_nSrB6nNFF-6unExeFIpZjk';  // Replace with your actual API key
+  private apiKey = environment.googleMapsApiKey;
+
   private autocomplete: google.maps.places.Autocomplete | undefined;
   private sessionToken: google.maps.places.AutocompleteSessionToken | undefined;
   private static loaderInstance: Loader | undefined; // Static variable for the Loader instance

@@ -4,6 +4,7 @@ mat-toolbar {
   padding: 16px 24px;
   height: auto;
   flex-direction: column;
+  flex: 1;
 }
 
 .header-content {

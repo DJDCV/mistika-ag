@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.error = "Error al cargar las reservas: " + err.message;
+        this.reservations = [];
         this.isLoading = false;
       }
     });

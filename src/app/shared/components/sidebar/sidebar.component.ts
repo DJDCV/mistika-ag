@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
   clientName: string = ""
   clientEmail: string = ""
 
+
   constructor(private authService: AuthService) {}
 
   getClientInfo(): void {
@@ -42,4 +43,5 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
       this.getClientInfo();
   }
+
 }

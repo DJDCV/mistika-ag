@@ -13,9 +13,12 @@
 mat-sidenav-content {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   padding: 5px;
   background-color: #ffffff !important;

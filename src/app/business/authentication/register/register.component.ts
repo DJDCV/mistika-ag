@@ -9,12 +9,12 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { AuthService } from '../../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, PlaceAutocompleteComponent, MatToolbarModule, MatInputModule, MatButtonModule, MatOptionModule, MatFormFieldModule, MatSelectModule],
+  imports: [ReactiveFormsModule, CommonModule, PlaceAutocompleteComponent, MatToolbarModule, MatInputModule, MatButtonModule, MatOptionModule, MatFormFieldModule, MatSelectModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
