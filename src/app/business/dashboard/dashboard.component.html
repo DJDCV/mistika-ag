@@ -1,1 +1,72 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="header">
+    <button 
+      class="refresh-button"
+      (click)="fetchReservations()"
+      [disabled]="isLoading">
+      Actualizar
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    Cargando reservas...
+  </div>
+
+  <div *ngIf="!isLoading">
+    <div *ngIf="reservations.length > 0; else noReservations">
+      <div class="table-container">
+        <table class="reservations-table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Fecha de Reserva</th>
+              <th>Monto</th>
+              <th>Método de Pago</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reservation of reservations">
+              <td class="user-info">
+                <div>
+                  <div>{{ reservation.userId.name }}</div>
+                  <div class="text-sm">{{ reservation.userId.email }}</div>
+                </div>
+              </td>
+              <td>{{ formatDate(reservation.reservationDate) }}</td>
+              <td>{{ formatCurrency(reservation.paymentInfo.amount) }}</td>
+              <td>{{ reservation.paymentInfo.method | titlecase }}</td>
+              <td>
+                <span [class]="'status-badge ' + getStatusClass(reservation.status)">
+                  {{ reservation.status | titlecase }}
+                </span>
+              </td>
+              <td class="actions">
+                <select 
+                  [ngModel]="reservation.status"
+                  (ngModelChange)="updateStatus(reservation._id, $event)"
+                  class="status-select">
+                  <option *ngFor="let status of statusOptions" [value]="status">
+                    {{ status | titlecase }}
+                  </option>
+                </select>
+                <button 
+                  class="delete-button"
+                  (click)="deleteReservation(reservation._id)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #noReservations>
+      <div class="no-reservations">
+        No hay reservas registradas
+      </div>
+    </ng-template>
+  </div>
+</div>

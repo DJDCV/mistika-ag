@@ -1,12 +1,27 @@
-
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <label>
-    Correo Electronico
-    <input type="text" formControlName="email" />
-  </label>
-  <label>
-    Contraseña
-    <input type="password" formControlName="password" />
-  </label>
-  <button type="submit">Iniciar sesión</button>
-</form>
+<div class="form-container">
+  <div class="form-container__left">
+    <img src="logo.png" alt="logo" />
+  </div>
+  <div class="form-container__right">
+    <div class="form-header">
+      <h1>Inicia Sesión</h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field class="custom-input" appearance="outline">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="email" placeholder="Ingresa tu correo" />
+      </mat-form-field>
+      <mat-form-field class="custom-input" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Ingresa tu contraseña" />
+      </mat-form-field>
+      <div class="forgot-password">
+        <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
+    </form>
+    <div class="redirect-link">
+      ¿Nuevo en la plataforma? <a routerLink="/register">Crea una cuenta</a>
+    </div>
+  </div>
+</div>

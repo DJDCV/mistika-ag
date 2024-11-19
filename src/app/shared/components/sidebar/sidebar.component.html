@@ -1,1 +1,41 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+  <div class="logo-container">
+    <span class="logo-text">Mistika</span>
+  </div>
+  
+  <mat-nav-list>
+    <a class="nav-item" mat-list-item routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon>dashboard</mat-icon>
+      <span>Reservas</span>
+    </a>
+    <a class="nav-item" mat-list-item routerLink="/people" routerLinkActive="active">
+      <mat-icon>people</mat-icon>
+      <span>Empleados</span>
+    </a>
+    <a class="nav-item" mat-list-item routerLink="/time-tools">
+      <mat-icon>access_time</mat-icon>
+      <span>Por hacer</span>
+    </a>
+
+  </mat-nav-list>
+
+  <div class="bottom-nav">
+    <mat-nav-list>
+      <a class="nav-item" mat-list-item routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        <span>Configuración</span>
+      </a>
+      <a class="nav-item" mat-list-item routerLink="/support">
+        <mat-icon>help</mat-icon>
+        <span>Soporte</span>
+      </a>
+    </mat-nav-list>
+    
+    <div class="user-profile">
+      <div class="user-info">
+        <span class="user-name">{{ clientName }}</span>
+        <span class="user-email">{{ clientEmail }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,16 @@
-import { getLocaleEraNames } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import * as jwt_decode from 'jwt-decode';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private LOGIN_URL = `http://localhost:5000/clients/login`
-  private REGISTER_URL = `http://localhost:5000/clients/register`
+  private LOGIN_URL = `${environment.serverURL}/clients/login`
+  private REGISTER_URL = `${environment.serverURL}/clients/register`
   private tokenKey = `authToken`;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
@@ -57,6 +58,34 @@ export class AuthService {
     if (typeof window !== 'undefined') {
       return localStorage.getItem(this.tokenKey);
     } else {
+      return null;
+    }
+  }
+  
+  getCliendIdFromToken(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const decodedToken: any = jwt_decode.jwtDecode(token);
+      return decodedToken.clientId || null;
+    } catch (error) {
+      console.error(`Invalid token format ${error}`);
+      return null;
+    }
+  }
+
+  getClientNameEmailFromToken(): { name: string | null, email: string | null } | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const decodedToken: any = jwt_decode.jwtDecode(token);
+      const name = decodedToken?.name || null;
+      const email = decodedToken?.email || null;
+      return { name, email };
+    } catch (error) {
+      console.error(`Invalid token format ${error}`);
       return null;
     }
   }

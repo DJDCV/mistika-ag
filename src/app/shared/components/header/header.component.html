@@ -1,2 +1,14 @@
-<p>header works!</p>
-<button (click)="logout()">Cerrar sesión</button>
+<mat-toolbar>
+  <div class="header-content">
+    <div class="title-section">
+      <h1>Reservas</h1>
+    </div>
+    
+    <div class="actions">
+      <button mat-button color="primary" (click)="logout()">
+        Cerrar Sesión
+      </button>
+    </div>
+  </div>
+
+</mat-toolbar>
